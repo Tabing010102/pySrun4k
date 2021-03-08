@@ -1,3 +1,23 @@
+# 说明
+
+XJU本部宿舍区SRUN4k验证py暴力实现
+
+py2.x/3.x
+
+# 依赖
+
+## python
+requests time os
+
+## openwrt
+python-requests
+
+# 用法
+
+python run.py
+
+# 原README
+
 # pySrun4k
 ## 简介
 pySrun4k是一个模仿Srun4k认证客户端协议，用Python3实现的认证客户端。

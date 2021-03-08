@@ -25,3 +25,4 @@ def encrypt(string):
 			ret = ret + char_r + char_c
 		i = i + 1
 	return ret
+

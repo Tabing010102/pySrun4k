@@ -1,6 +1,7 @@
 import password
 import requests
 
+
 class pySrun4kError(Exception):
 	def __init__(self,reason):
 		Exception.__init__(self)
@@ -23,7 +24,7 @@ def do_login(username,pwd,mbytes=0,minutes=0):
 	header = {
 		'user-agent':'pySrun4k'
 	}
-	r = requests.post("http://10.0.0.55/cgi-bin/srun_portal",data=payload,headers=header)
+	r = requests.post("http://202.201.252.10/cgi-bin/srun_portal",data=payload,headers=header)
 	if ('login_error' in r.text):
 		ret = {
 			'success':False,
@@ -44,7 +45,7 @@ def check_online():
 	header = {
 		'user-agent':'pySrun4k'
 	}
-	r = requests.get("http://10.0.0.55/cgi-bin/rad_user_info",headers=header)
+	r = requests.get("http://202.201.252.10/cgi-bin/rad_user_info",headers=header)
 	if ('not_online' in r.text):
 		ret = {
 			'online':False
@@ -72,10 +73,10 @@ def do_logout(username):
 	payload = {
 		'action':'logout',
 		'ac_id':1,
-		'username':username, #这参数好像没啥用,不过好像不传又不行.
+		'username':username, 
 		'type':2
 	}
-	r = requests.post('http://10.0.0.55/cgi-bin/srun_portal',data=payload,headers=header)
+	r = requests.post('http://202.201.252.10/cgi-bin/srun_portal',data=payload,headers=header)
 	if ('logout_ok' in r.text):
 		ret = {
 			'success':True,
@@ -103,7 +104,7 @@ def force_logout(username,pwd):
 	header = {
 		'user-agent':'pySrun4k'
 	}
-	r = requests.post('http://10.0.0.55/cgi-bin/srun_portal',data=payload,headers=header)
+	r = requests.post('http://202.201.252.10/cgi-bin/srun_portal',data=payload,headers=header)
 	if ('logout_ok' in r.text):
 		ret = {
 			'success':True
